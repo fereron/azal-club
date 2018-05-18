@@ -1,0 +1,23 @@
+$body-bg: #F3E9DD;
+$font-color: #9D9386;
+// Fonts
+//@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+
+// Variables
+//@import "variables";
+
+// Bootstrap
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+@import "font_awesome/font-awesome";
+
+@import "layout";
+@import "login_modal";
+//@import "~vue-snotify/styles/material";
+@import "alert";
+
+@import "dashboard";
+@import "flights";
+@import "login";
+
+//TODO Reduce dashboard sidebar width
+

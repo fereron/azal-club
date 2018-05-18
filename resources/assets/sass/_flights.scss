@@ -1,0 +1,42 @@
+.flights {
+  h2 {
+    font-family: "Roboto-Medium", sans-serif !important;
+    //font-size: 18px !important;
+    text-align: left;
+    //color: #9D9386;
+    letter-spacing: 1px !important;
+    margin: 10px 50px;
+  }
+
+  .airline-img img {
+    max-width: 130px;
+  }
+  .flights__table {
+    //border-color: #4E4848;
+    margin: 50px 0 80px;
+    width: 100%;
+    //position: relative;
+    border-collapse: collapse;
+    padding-bottom: 105px;
+
+    th, td {
+      border-bottom: 1px solid #4E4848;
+    }
+
+    td {
+      vertical-align: middle !important;
+      padding: 15px 15px;
+      //color: #414f5f;
+      font-size: 18px;
+      //font-weight: bold;
+      text-align: center;
+      //border-bottom: 1px solid #c0c0c1;
+    }
+
+    tr {
+      th {
+        text-align: center;
+      }
+    }
+  }
+}
