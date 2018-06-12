@@ -1,6 +1,8 @@
 @extends('dashboard.layouts.app')
 
 @push('styles')
+    <link rel="stylesheet" href="/global/vendor/blueimp-file-upload/jquery.fileupload.css">
+    <link rel="stylesheet" href="/global/vendor/dropify/dropify.css">
 @endpush
 
 
@@ -34,7 +36,7 @@
                 @endforeach
             @endif
 
-            <form id="update-profile" action="{{ route('profile.update') }}" method="post" autocomplete="off">
+            <form id="update-profile" action="{{ route('profile.update') }}" method="post" autocomplete="off" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-md-6">
@@ -58,6 +60,10 @@
                                            value="{{ old('position') ? old('position') : $user->position }}"/>
                                     <label class="floating-label">Должность</label>
                                 </div>
+                                    <h4 class="example-title">Обложка профиля</h4>
+                                    <div class="example col-xl-8 col-md-10">
+                                        <input type="file" accept="image/*" id="input-file-now-custom-1" data-plugin="dropify" data-default-file="{{ $user->cover }}" name="cover" />
+                                    </div>
                             </div>
                         </div>
                     </div>
@@ -103,6 +109,23 @@
     <script src="/global/js/Plugin/switchery.js"></script>
     <script src="/global/js/Plugin/jquery-placeholder.js"></script>
     <script src="/global/js/Plugin/material.js"></script>
+
+    <script src="/global/vendor/jquery-ui/jquery-ui.js"></script>
+    <script src="/global/vendor/blueimp-tmpl/tmpl.js"></script>
+    <script src="/global/vendor/blueimp-canvas-to-blob/canvas-to-blob.js"></script>
+    <script src="/global/vendor/blueimp-load-image/load-image.all.min.js"></script>
+    <script src="/global/vendor/blueimp-file-upload/jquery.fileupload.js"></script>
+    <script src="/global/vendor/blueimp-file-upload/jquery.fileupload-process.js"></script>
+    <script src="/global/vendor/blueimp-file-upload/jquery.fileupload-image.js"></script>
+    <script src="/global/vendor/blueimp-file-upload/jquery.fileupload-audio.js"></script>
+    <script src="/global/vendor/blueimp-file-upload/jquery.fileupload-video.js"></script>
+    <script src="/global/vendor/blueimp-file-upload/jquery.fileupload-validate.js"></script>
+    <script src="/global/vendor/blueimp-file-upload/jquery.fileupload-ui.js"></script>
+    <script src="/global/vendor/dropify/dropify.min.js"></script>
+
+    <script src="/global/js/Plugin/dropify.js"></script>
+
+    <script src="/assets/examples/js/forms/uploads.js"></script>
 
 
     <script>

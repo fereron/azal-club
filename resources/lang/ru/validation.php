@@ -158,5 +158,10 @@ return [
     'attributes' => [
         'first_name' => 'имя',
         'last_name' => 'фамилия',
+        'position' => 'должность',
+        'gender' => 'указания пола',
+        'password' => 'пароль',
+//        'last_name' => 'фамилия',
+
     ],
 ];

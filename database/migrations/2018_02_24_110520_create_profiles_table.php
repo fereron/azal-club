@@ -19,7 +19,7 @@ class CreateProfilesTable extends Migration
             $table->text('about')->nullable();
             $table->string('facebook')->nullable();
             $table->json('options')->nullable();
-            $table->unsignedInteger('user_id')->nullable();
+            $table->unsignedInteger('user_id');
             $table->timestamps();
         });
     }

@@ -50,5 +50,16 @@ class ProfileController extends Controller
         return back()->with('updated', true);
     }
 
+    public function publicProfile($uuid)
+    {
+        if (Auth::user()->uuid == $uuid) {
+            return redirect()->route('profile');
+        }
+
+        $user = $this->user->with(['profile'])->findBy('uuid', $uuid);
+
+        return view('dashboard.public_profile', compact('user'));
+    }
+
 
 }

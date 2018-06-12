@@ -10,8 +10,11 @@ class UserAvatarObserver {
     {
         if (!$user->avatar) {
             $user->avatar = 'no-user.gif';
-//            $user->save();
         }
+
+        $user->uuid = uuid();
+        $user->cover = 'placeholder.png';
+
         return true;
     }
 

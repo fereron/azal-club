@@ -2,7 +2,6 @@
 
 namespace App\Repositories;
 
-
 use App\User;
 use File;
 use Illuminate\Http\Request;
@@ -28,7 +27,8 @@ class UserRepository extends Repository
             ->with('profile')
             ->when(request('q'), function ($query) {
                 $query->where('first_name', 'like', '%' . request('q') . '%')
-                    ->orWhere('last_name', 'like', '%' . request('q') . '%');
+                    ->orWhere('last_name', 'like', '%' . request('q') . '%')
+                    ->orWhere('full_name', 'like', '%' . request('q') . '%');
             })->get();
     }
 
@@ -82,6 +82,18 @@ class UserRepository extends Repository
 
         $user->fill($request->all());
         $user->profile->fill($request->all());
+
+        if ($request->hasFile('cover')) {
+            $photo = $request->file('cover');
+            $fileName = time() . md5($user->email) . '.' . $photo->extension();
+
+            if ($user->cover !== 'placeholder.png') {
+                Storage::disk('public')->delete("users/covers/{$user->cover}");
+            }
+
+            $photo->storeAs('users/covers', $fileName, 'public');
+            $user->cover = $fileName;
+        }
 
         $user->save();
         $user->profile->save();

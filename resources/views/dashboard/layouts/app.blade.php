@@ -9,11 +9,12 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Profile v3 | Remark Material Admin Template</title>
+    <title>Azal virtual airlines</title>
 
     <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
     <link rel="shortcut icon" href="/assets/images/favicon.ico">
 
+    @include('layouts.js-vars')
     <!-- Stylesheets -->
     <link rel="stylesheet" href="/global/css/bootstrap.min.css">
     <link rel="stylesheet" href="/global/css/bootstrap-extend.min.css">
@@ -28,13 +29,17 @@
     <link rel="stylesheet" href="/global/vendor/flag-icon-css/flag-icon.css">
     <link rel="stylesheet" href="/global/vendor/waves/waves.css">
 
+    <link rel="stylesheet" href="/global/vendor/slidepanel/slidePanel.css">
+    <link rel="stylesheet" href="/global/vendor/chartist/chartist.css">
+    <link rel="stylesheet" href="/global/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css">
+    <link rel="stylesheet" href="/global/vendor/jquery-selective/jquery-selective.css">
+
     <link rel="stylesheet" href="/global/vendor/plyr/plyr.css">
     <link rel="stylesheet" href="/global/vendor/magnific-popup/magnific-popup.css">
-
-    @stack('styles')
-
     <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="{{ asset('css/ds.css') }}">
 
+@stack('styles')
 
     <!-- Fonts -->
     <link rel="stylesheet" href="/global/fonts/material-design/material-design.min.css">
@@ -72,11 +77,11 @@
 <!-- Footer -->
     <footer class="site-footer">
         <div class="site-footer-legal">© 2018 <a
-                    href="http://themeforest.net/item/remark-responsive-bootstrap-admin-template/11989202">Remark</a>
+                    href="https://www.azal.az">Azal</a>
         </div>
         <div class="site-footer-right">
             Crafted with <i class="red-600 icon md-favorite"></i> by <a
-                    href="https://themeforest.net/user/creation-studio">Creation Studio</a>
+                    href="https://themeforest.net/user/creation-studio">Rufat Kadirov</a>
         </div>
     </footer>
 </div>

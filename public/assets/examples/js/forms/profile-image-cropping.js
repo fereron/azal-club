@@ -54,10 +54,10 @@ $(document).ready(function () {
                 success: function (html) {
                     if (html.success) {
                         $('.person-avatar').find('img').remove();
-                        $('.person-avatar').append('<img src="/storage/avatars/' + html.avatar + '" alt="alt">');
+                        $('.person-avatar').append('<img src="/storage/users/avatars/' + html.avatar + '" alt="alt">');
 
                         $('.avatar-online').find('img').remove();
-                        $('.avatar-online').append('<img src="/storage/avatars/' + html.avatar + '" alt="alt">');
+                        $('.avatar-online').append('<img src="/storage/users/avatars/' + html.avatar + '" alt="alt">');
 
                         $('#exampleNiftyFadeScale').modal('hide')
                     }

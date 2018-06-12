@@ -2,7 +2,10 @@
 
 namespace App\Providers;
 
+use App\Group;
+use App\Observers\GroupAvatarObserver;
 use App\Observers\UserAvatarObserver;
+use App\Observers\UserFullNameObserver;
 use App\Observers\UserProfileObserver;
 use App\User;
 use Illuminate\Support\Facades\Event;
@@ -30,7 +33,9 @@ class EventServiceProvider extends ServiceProvider
     {
         parent::boot();
 
-//        User::observe(UserProfileObserver::class);
+        User::observe(UserProfileObserver::class);
         User::observe(UserAvatarObserver::class);
+        User::observe(UserFullNameObserver::class);
+        Group::observe(GroupAvatarObserver::class);
     }
 }

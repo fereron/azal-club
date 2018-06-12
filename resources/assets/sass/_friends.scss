@@ -1,0 +1,105 @@
+.friends__wrapper {
+  font-weight: 500;
+
+  h1 {
+    font-size: 32px;
+    color: #000000;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+  }
+
+
+  .friends {
+    display: flex;
+    flex-wrap: wrap;
+
+    .friend {
+      width: 300px;
+      height: 285px;
+      border-radius: 3px;
+      text-align: center;
+      background-color: #fff;
+      box-shadow: 0 0 5px 0 rgba(0,0,0,0.40);
+      margin: 0 30px 30px 0;
+
+      .avatar {
+        border-radius: 50%;
+        height: 100px;
+        width: 100px;
+        border: 5px solid #6F5F5C;
+        vertical-align: middle;
+        margin: 25px 0 20px 0;
+      }
+      h4 {
+        margin-bottom: 8px;
+        .name {
+          font-size: 22px;
+          color: #000000;
+          letter-spacing: 1.38px;
+        }
+      }
+
+      .position {
+        font-weight: 400;
+        font-size: 17px;
+        color: #6F5F5C;
+        letter-spacing: 1.06px;
+        margin-bottom: 5px;
+      }
+      .email {
+        font-weight: 400;
+        font-size: 17px;
+        color: #467CFF;
+        letter-spacing: 1.06px;
+        margin-bottom: 15px;
+      }
+
+
+      .buttons {
+        .left__button, .right__button {
+          width: 50%;
+          border-top: 1px solid #A16B62;
+
+          a {
+            display: block;
+            padding: 10px 0;
+            font-size: 14px;
+            font-weight: 400;
+            color: #6F5F5C;
+            letter-spacing: 0.88px;
+
+            svg {
+              margin-left: 20px;
+              fill: #6F5F5C;
+              float: left;
+
+            }
+          }
+          &:hover {
+            background-color: lighten(#6F5F5C, 50%);
+          }
+        }
+        .left__button {
+          float: left;
+          border-right: 1px solid #A16B62;
+
+          svg {
+            margin-top: 4px;
+          }
+        }
+        .right__button {
+          float: right;
+
+          svg {
+            margin-top: -3px;
+          }
+        }
+      }
+
+    }
+
+    .friend:nth-child(3n+3) {
+      margin-right: 0;
+    }
+  }
+}

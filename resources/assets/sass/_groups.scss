@@ -1,0 +1,61 @@
+.friends-harmonic {
+
+  .title {
+    text-decoration: none;
+  }
+
+  ul {
+    display: inline-block;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+
+    li {
+      float: left;
+
+      &:first-child a {
+        margin-left: 0;
+      }
+
+      a {
+        width: 28px;
+        height: 28px;
+        border-radius: 100%;
+        overflow: hidden;
+        border: 2px solid #fff;
+        display: block;
+        margin-left: -10px;
+        transition: all .15s ease;
+        color: #ff5e3a;
+        text-decoration: none;
+        background-color: transparent;
+
+        &.all-users {
+          line-height: 26px;
+          opacity: .8;
+          color: #fff;
+          font-size: 10px;
+          font-weight: 800;
+        }
+
+        img {
+          max-width: 100%;
+          height: auto;
+          display: inline-block;
+          vertical-align: middle;
+          border-style: none;
+        }
+
+      }
+    }
+  }
+}
+
+.group-page {
+  .page-header {
+    h1 {
+      font-size: 36px;
+      font-weight: 800;
+    }
+  }
+}

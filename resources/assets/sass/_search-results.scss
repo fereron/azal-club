@@ -1,0 +1,30 @@
+.search__results {
+  width: 95%;
+
+  .search__results__wrapper {
+    margin-top: 5px;
+    ul {
+      list-style: none;
+
+      li {
+        margin: 5px 0;
+
+        //&:not(:last-child) {
+        //  border-bottom: 1px solid #e0e0e0;
+        //}
+
+        //&:hover {
+        //  background-color: darken(#fff, 10%);
+        //}
+
+        a {
+          color: #757575;
+          text-decoration: none;
+          display: block;
+
+        }
+
+      }
+    }
+  }
+}
