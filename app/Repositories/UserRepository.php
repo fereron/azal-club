@@ -19,6 +19,8 @@ class UserRepository extends Repository
     }
 
     /**
+     * Get users like in query
+     *
      * @return mixed
      */
     public function whenQuery()
@@ -33,6 +35,8 @@ class UserRepository extends Repository
     }
 
     /**
+     * Save image to DB
+     *
      * @param Request $request
      * @return bool|\Illuminate\Http\JsonResponse
      */
@@ -73,6 +77,8 @@ class UserRepository extends Repository
 
 
     /**
+     * Update user's profile
+     *
      * @param Request $request
      * @return bool
      */

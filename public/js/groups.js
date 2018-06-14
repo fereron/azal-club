@@ -72,8 +72,6 @@ $(document).ready(function () {
             body = form.find('textarea').val(),
             group_id = form.data('groupId');
 
-
-
         $.ajax({
             url: AppConfig.routes.groupPostAdd,
             type: 'POST',
@@ -117,6 +115,7 @@ $(document).ready(function () {
                 form.parents('.card').after(adding_div);
 
                 $(adding_div).fadeIn('slow');
+                form.find('textarea').val('');
 
             }
         });
@@ -129,12 +128,14 @@ $(document).ready(function () {
 
         var form = $(this),
             body = form.find('input').val(),
-            post_id = form.data('postId');
+            post_id = form.data('postId'),
+            group_id = form.data('groupId');
 
         $.ajax({
             url: AppConfig.routes.groupPostCommentAdd,
             type: 'POST',
             data: {
+                group_id: group_id,
                 post_id: post_id,
                 body: body
             },

@@ -23,6 +23,11 @@ class GroupController extends Controller
         $this->groupRepository = $groupRepository;
     }
 
+    /**
+     * All user's groups page
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
         $groups = auth()->user()->groups()->with('members')->get();
@@ -73,6 +78,13 @@ class GroupController extends Controller
         return view('dashboard.groups.edit', compact('group'));
     }
 
+    /**
+     * Handle update form request
+     *
+     * @param $group_id
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function update($group_id, Request $request)
     {
         $this->validate($request,[

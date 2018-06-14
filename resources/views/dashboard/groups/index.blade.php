@@ -25,24 +25,24 @@
         </div>
         <div class="page-content">
             @if($groups->count())
-                <div class="projects-sort">
-                    <span class="projects-sort-label">Сортировать по : </span>
-                    <div class="inline-block dropdown">
-            <span id="projects-menu" data-toggle="dropdown" aria-expanded="false" role="button" style="cursor:pointer">
-              Названию проекта
-              <i class="icon md-chevron-down" aria-hidden="true"></i>
-            </span>
-                        <div class="dropdown-menu animation-scale-up animation-top-left animation-duration-250"
-                             aria-labelledby="projects-menu" role="menu">
-                            <a class="dropdown-item" href="javascript:void(0)" role="menuitem" tabindex="-1">Sort
-                                One</a>
-                            <a class="active dropdown-item" href="javascript:void(0)" role="menuitem" tabindex="-1">Sort
-                                Two</a>
-                            <a class="dropdown-item" href="javascript:void(0)" role="menuitem" tabindex="-1">Sort
-                                Three</a>
-                        </div>
-                    </div>
-                </div>
+                {{--<div class="projects-sort">--}}
+                    {{--<span class="projects-sort-label">Сортировать по : </span>--}}
+                    {{--<div class="inline-block dropdown">--}}
+            {{--<span id="projects-menu" data-toggle="dropdown" aria-expanded="false" role="button" style="cursor:pointer">--}}
+              {{--Названию проекта--}}
+              {{--<i class="icon md-chevron-down" aria-hidden="true"></i>--}}
+            {{--</span>--}}
+                        {{--<div class="dropdown-menu animation-scale-up animation-top-left animation-duration-250"--}}
+                             {{--aria-labelledby="projects-menu" role="menu">--}}
+                            {{--<a class="dropdown-item" href="javascript:void(0)" role="menuitem" tabindex="-1">Sort--}}
+                                {{--One</a>--}}
+                            {{--<a class="active dropdown-item" href="javascript:void(0)" role="menuitem" tabindex="-1">Sort--}}
+                                {{--Two</a>--}}
+                            {{--<a class="dropdown-item" href="javascript:void(0)" role="menuitem" tabindex="-1">Sort--}}
+                                {{--Three</a>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
             @else
                 <h2>Вы не состоите ни в одной группе</h2>
             @endif
@@ -59,16 +59,6 @@
                                     <figcaption class="overlay-panel overlay-background overlay-fade text-center vertical-align">
                                         @if(auth()->user()->isAdmin($group->id))
                                             <div class="btn-group">
-
-                                                <div class="dropdown float-left">
-                                                    <button type="button" class="btn btn-icon btn-pure btn-default"
-                                                            title="Setting">
-                                                        <i class="icon md-settings" aria-hidden="true"></i></button>
-                                                    <div class="dropdown-menu" role="menu">
-                                                        <a class="dropdown-item" href="">Copy</a>
-                                                        <a class="dropdown-item" href="">Rename</a>
-                                                    </div>
-                                                </div>
                                                     <button type="button" class="btn btn-icon btn-pure btn-default"
                                                             title="Delete"
                                                             data-tag="project-delete"
@@ -110,29 +100,29 @@
                 </ul>
             </div>
 
-            @if($groups->count())
-                <nav>
-                    <ul class="pagination pagination-no-border">
-                        <li class="disabled page-item">
-                            <a class="page-link" href="javascript:void(0)" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <li class="active page-item"><a class="page-link" href="javascript:void(0)">1 <span
-                                        class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>
-                        <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
-                        <li class="page-item"><a class="page-link" href="javascript:void(0)">4</a></li>
-                        <li class="page-item"><a class="page-link" href="javascript:void(0)">5</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="javascript:void(0)" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            @endif
+            {{--@if($groups->count())--}}
+                {{--<nav>--}}
+                    {{--<ul class="pagination pagination-no-border">--}}
+                        {{--<li class="disabled page-item">--}}
+                            {{--<a class="page-link" href="javascript:void(0)" aria-label="Previous">--}}
+                                {{--<span aria-hidden="true">&laquo;</span>--}}
+                            {{--</a>--}}
+                        {{--</li>--}}
+                        {{--<li class="active page-item"><a class="page-link" href="javascript:void(0)">1 <span--}}
+                                        {{--class="sr-only">(current)</span></a>--}}
+                        {{--</li>--}}
+                        {{--<li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>--}}
+                        {{--<li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>--}}
+                        {{--<li class="page-item"><a class="page-link" href="javascript:void(0)">4</a></li>--}}
+                        {{--<li class="page-item"><a class="page-link" href="javascript:void(0)">5</a></li>--}}
+                        {{--<li class="page-item">--}}
+                            {{--<a class="page-link" href="javascript:void(0)" aria-label="Next">--}}
+                                {{--<span aria-hidden="true">&raquo;</span>--}}
+                            {{--</a>--}}
+                        {{--</li>--}}
+                    {{--</ul>--}}
+                {{--</nav>--}}
+            {{--@endif--}}
         </div>
     </div>
 

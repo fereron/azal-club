@@ -37,6 +37,8 @@ class GroupController extends Controller
     }
 
     /**
+     * Add new member to group
+     *
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */

@@ -10,6 +10,12 @@
     <div class="page">
         <div class="page-header">
             <h1 class="page-title">Редактировать профиль</h1>
+            <div class="page-header-actions">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ route('profile') }}">Профиль</a></li>
+                    <li class="breadcrumb-item active">Редактирование</li>
+                </ol>
+            </div>
         </div>
 
         <div class="page-content container-fluid">

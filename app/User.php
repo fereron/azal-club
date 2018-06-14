@@ -33,6 +33,11 @@ class User extends Authenticatable
         return $this->hasOne(Profile::class);
     }
 
+    /**
+     * User groups relation
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function groups()
     {
         return $this->belongsToMany(Group::class)
@@ -65,17 +70,16 @@ class User extends Authenticatable
     }
 
     /**
-     * Check if the user is admin of group
+     * Check if the user is member of group
      *
      * @param $group_id
      * @return bool
      */
     public function isMember($group_id)
     {
-        $group = $this->groups()->find($group_id);
-        if (is_null($group)) return false;
-
-        return ($group->pivot->role == 'admin') ? true : false;
+        return is_null(
+            $this->groups()->find($group_id)
+        ) ? false : true;
     }
 
     public function requestToGroup()

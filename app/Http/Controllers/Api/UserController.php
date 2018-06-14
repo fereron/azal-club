@@ -41,17 +41,24 @@ class UserController extends Controller
         return response()->json(['success' => true], 200);
     }
 
+    /**
+     * Handle a request to change profile image
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function changeAvatar(Request $request)
     {
         $avatar = $this->user->changeAvatar($request);
 
-        if (!is_null($avatar)) {
-            return response()->json(['success' => true, 'avatar' => $avatar], 200);
-        } else {
-            return response()->json(['error' => true], 200);
-        }
+        return response()->json(['success' => true, 'avatar' => $avatar], 200);
     }
 
+    /**
+     * Search and return users from request query
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function search()
     {
         return response()->json(['users' => $this->user->whenQuery()], 200);

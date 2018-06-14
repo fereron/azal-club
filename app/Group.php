@@ -10,6 +10,11 @@ class Group extends Model
       'name', 'avatar', 'description', 'privacy'
     ];
 
+    /**
+     * Group users relation
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function members()
     {
         return $this->belongsToMany(User::class)

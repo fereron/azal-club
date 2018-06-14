@@ -37,6 +37,12 @@ class ProfileController extends Controller
         ]);
     }
 
+    /**
+     * Handle update user's profile request
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function update(Request $request)
     {
         $this->validate($request, [

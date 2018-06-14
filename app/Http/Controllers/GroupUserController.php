@@ -23,6 +23,10 @@ class GroupUserController extends Controller
         $this->group = $group;
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store(Request $request)
     {
         $group = $this->group->find($request->input('group_id'));
