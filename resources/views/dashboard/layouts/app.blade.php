@@ -61,7 +61,7 @@
         Breakpoints();
     </script>
 </head>
-<body class="animsition page-profile-v3 @if(Auth::user()->profile->options['menubar']) site-menubar-unfold @else site-menubar-fold @endif site-menubar-keep">
+<body class="animsition page-profile-v3 @if(!empty($user_options) && $user_options['menubar'] == 1) site-menubar-unfold @else site-menubar-fold @endif site-menubar-keep">
 <!--[if lt IE 8]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>

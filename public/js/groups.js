@@ -54,7 +54,7 @@ $(document).ready(function () {
                         count_div.html(count);
                         toastr.success('Пользователь ' + query + ' успешно добавлен.');
                     } else if (json.invited) {
-
+                        toastr.success('Пользователь ' + query + ' приглашен в группу.');
                     }
 
                 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Mail\GroupInvite;
 use App\Repositories\GroupRepository as Group;
 use App\Repositories\UserRepository as User;
 use Illuminate\Http\Request;
@@ -44,31 +45,34 @@ class GroupController extends Controller
      */
     public function addMember(Request $request)
     {
-        $user = $this->user->findBy('full_name', $request->input('query'));
+        $user = $this->user->findMember($request->input('query'));
 
         if ($user) {
 
-            if ($user->groups()->where(['group_id'=>$request->input('group_id')])->exists()) {
+            if ($user->groups()->where(['group_id' => $request->input('group_id')])->exists()) {
                 return response()->json(['attached' => true], 200);
             }
 
-            $user->groups()->attach(['group_id'=>$request->input('group_id')]);
+            $user->groups()->attach(['group_id' => $request->input('group_id')]);
 
             return response()->json(['added' => true], 200);
         }
 
         $validator = \Validator::make($request->all(), [
-           'query' => 'string|email|max:255'
+            'query' => 'string|email|max:255'
         ]);
 
         if ($validator->fails()) {
             return response()->json(['error' => true, 'message' => 'Введите эл. адрес в правильном формате.'], 200);
         }
 
-        //TODO send invitation to mail
+        $group = $this->group->find($request->input('group_id'));
+        $group->invites()->create(['email' => $request->input('query')]);
 
+        \Mail::to($request->input('query'))
+            ->send(new GroupInvite($group));
 
-        dd('invitation');
+        return response()->json(['invited' => true], 200);
     }
 
 }

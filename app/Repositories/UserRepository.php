@@ -106,4 +106,12 @@ class UserRepository extends Repository
 
         return true;
     }
+
+    public function findMember($query)
+    {
+        return $this->model
+            ->where('full_name', $query)
+            ->orWhere('email', $query)
+            ->first();
+    }
 }

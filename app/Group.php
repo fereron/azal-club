@@ -32,6 +32,11 @@ class Group extends Model
         return $this->hasMany(GroupRequest::class);
     }
 
+    public function invites()
+    {
+        return $this->hasMany(GroupInvite::class);
+    }
+
     public function getAvatarPathAttribute()
     {
         return '/storage/groups/avatars/'.$this->attributes['avatar'];

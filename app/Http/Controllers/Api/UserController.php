@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Repositories\UserRepository;
 //use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redis;
 
 class UserController extends Controller
 {
@@ -24,19 +25,17 @@ class UserController extends Controller
         $this->user = $user;
     }
 
-    public function menubarToggle(Request $request)
+    /**
+     * Change menubar setting and save to Redis
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function menubarToggle()
     {
-        $user = $request->user();
-        $options = $user->profile->options;
+        $user_id = auth()->id();
 
-        if (isset($options['menubar'])) {
-            $options['menubar'] = !$options['menubar'];
-        } else {
-            $options['menubar'] = false;
-        }
-
-        $user->profile->options = $options;
-        $user->profile->save();
+        $value = Redis::hmget("user.{$user_id}.options", 'menubar');
+        Redis::hmset("user.{$user_id}.options", 'menubar', $value ? $value[0] ^ 1 : 1);
 
         return response()->json(['success' => true], 200);
     }

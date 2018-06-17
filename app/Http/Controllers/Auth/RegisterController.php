@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\GroupInvite;
 use App\Mail\ConfirmEmail;
 use App\User;
 use App\Http\Controllers\Controller;
@@ -100,6 +101,14 @@ class RegisterController extends Controller
      */
     protected function registered(Request $request, $user)
     {
+        if ($invite = GroupInvite::query()->where('email', $user->email)->first()) {
+            $user->groups()->attach($invite->group_id);
+            $user->is_confirmed = true;
+            $invite->delete();
+
+            return redirect()->route('login');
+        }
+
         \Mail::to($user)->send(new ConfirmEmail($user));
 
         return redirect()->route('login')->with('registered', true);

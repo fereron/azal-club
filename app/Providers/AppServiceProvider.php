@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Carbon\Carbon;
+use Illuminate\Contracts\View\Factory as ViewFactory;
+use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -10,11 +12,17 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      *
+     * @param ViewFactory $view
      * @return void
      */
-    public function boot()
+    public function boot(ViewFactory $view)
     {
-        //
+        $view->composer('*', function ($view) {
+            $user_options = Redis::hgetall('user.'.auth()->id().'.options');
+
+            $view->with('user_options', $user_options);
+        });
+
     }
 
     /**
@@ -24,7 +32,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-
         Carbon::setLocale(config('app.locale'));
     }
 }
