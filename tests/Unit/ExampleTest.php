@@ -14,6 +14,9 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
+        $this->get('/')
+            ->assertRedirect(route('login'));
+
         $this->assertTrue(true);
     }
 }

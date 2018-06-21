@@ -40,9 +40,8 @@ $router->group(['middleware' => 'auth'], function (Router $router) {
     $router->get('groups/{group}', 'GroupController@show')->name('group.show');
     $router->post('group/create', 'GroupController@create')->name('group.create');
     $router->post('group/delete', 'GroupController@delete')->name('group.delete');
-});
 
 
-Route::get('/home', function () {
-    return redirect()->route('profile');
+    // ****** FORUM ******//
+    $router->get('threads', 'Forum\ThreadsController@index')->name('threads');
 });

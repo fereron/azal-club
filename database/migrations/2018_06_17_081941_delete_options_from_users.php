@@ -25,8 +25,8 @@ class DeleteOptionsFromUsers extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->json('options');
+        Schema::table('profiles', function (Blueprint $table) {
+            $table->json('options')->nullable();
         });
     }
 }
