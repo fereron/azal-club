@@ -62,14 +62,20 @@
                                                 <td><a href="{{ route('profile.public', [$request->user->uuid]) }}">{{ $request->user->full_name }}</a></td>
                                                 <td>{{ $request->created_at->diffForHumans() }}</td>
                                                 <td>
-                                                    <form action="{{ route('group.requests.accept') }}" method="post">
+                                                    <form action="{{ route('group.requests.accept') }}" method="post" class="float-left mr-10">
                                                         @csrf
                                                         <input type="hidden" name="user_id" value="{{ $request->user->id }}">
                                                         <input type="hidden" name="group_id" value="{{ $group->id }}">
                                                         <button class="btn btn-success">Принять</button>
                                                     </form>
+                                                    <form action="{{ route('group.requests.decline') }}" method="post">
+                                                        @csrf
+                                                        <input type="hidden" name="user_id" value="{{ $request->user->id }}">
+                                                        <input type="hidden" name="group_id" value="{{ $group->id }}">
+                                                        <button class="btn btn-danger">Отклонить</button>
+                                                    </form>
                                                 </td>
-                                            </tr>д
+                                            </tr>
                                         @endforeach
                                         </tbody>
                                     </table>

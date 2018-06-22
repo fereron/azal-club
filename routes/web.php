@@ -33,6 +33,7 @@ $router->group(['middleware' => 'auth'], function (Router $router) {
 
     $router->get('group/{group}/requests', 'GroupController@requests')->name('group.requests');
     $router->post('group/requests/accept', 'GroupUserController@accept')->name('group.requests.accept');
+    $router->post('group/requests/decline', 'GroupUserController@decline')->name('group.requests.decline');
 
     $router->get('groups', 'GroupController@index')->name('groups');
     $router->get('groups/edit/{group}', 'GroupController@edit')->name('group.edit');

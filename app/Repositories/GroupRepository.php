@@ -20,7 +20,21 @@ class GroupRepository extends Repository
     public function createGroup(Request $request)
     {
         $group = $this->model->create($request->all());
-        $group->members()->attach(\Auth::id());
+
+        if ($request->hasFile('avatar')) {
+            $photo = $request->file('avatar');
+            $fileName = time() . md5($group->id) . '.' . $photo->extension();
+
+            if ($group->avatar !== 'placeholder.png') {
+                Storage::disk('public')->delete("groups/avatars/{$group->avatar}");
+            }
+
+            $photo->storeAs('groups/avatars', $fileName, 'public');
+            $group->avatar = $fileName;
+            $group->save();
+        }
+
+        $group->members()->attach(\Auth::id(), ['role' => 'admin']);
 
         return $group;
     }

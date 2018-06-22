@@ -39,6 +39,8 @@ class ConfirmEmail extends Mailable
             'token' => app('encrypter')->encrypt($this->user->email)
         ]);
 
-        return $this->view('email.confirmation')->with('action', $action);
+        return $this->subject('Registration')
+            ->view('email.confirmation')
+            ->with('action', $action);
     }
 }

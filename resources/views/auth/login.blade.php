@@ -108,7 +108,6 @@
                             <input type="checkbox" id="inputCheckbox" name="remember">
                             <label for="inputCheckbox">Запомнить меня</label>
                         </div>
-                        <a class="float-right" href="forgot-password.html">Забыли пароль?</a>
                     </div>
                     <button type="submit" class="btn btn-primary btn-block btn-lg mt-40">Войти</button>
                 </form>
