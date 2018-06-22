@@ -139,7 +139,7 @@
          role="dialog" tabindex="-1">
         <div class="modal-dialog modal-simple">
             <div class="modal-content">
-                <form action="{{ route('group.create') }}" method="post" role="form">
+                <form action="{{ route('group.create') }}" method="post" role="form" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-header">
                         <button type="button" class="close" aria-hidden="true" data-dismiss="modal">×</button>
@@ -157,12 +157,8 @@
                                       placeholder="Описание группы" rows="4"></textarea>
                         </div>
                         <div class="form-group">
-                            <label class="form-control-label mb-15" for="avatar">Картинка группы:</label><br>
+                            <label class="form-control-label mb-15" for="avatar">Изображение группы:</label><br>
                             <input type="file" id="avatar" name="avatar">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-control-label mb-15" for="name">Choice people to your project:</label>
-                            <select multiple="multiple" class="plugin-selective"></select>
                         </div>
                     </div>
                     <div class="modal-footer text-right">

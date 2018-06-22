@@ -90,7 +90,7 @@
                         <label class="floating-label">Email</label>
                     </div>
                     <div class="form-group form-material floating" data-plugin="formMaterial">
-                        <input type="text" class="form-control" name="position" value="{{ old('position') }}" required/>
+                        <input type="text" class="form-control" name="position" value="{{ old('position') }}"/>
                         <label class="floating-label">Ваша должность</label>
                     </div>
                     <div class="form-group form-material row" data-plugin="formMaterial">

@@ -61,4 +61,18 @@ class GroupUserController extends Controller
         return back()->with('success', "Пользователь {$user->full_name} успешно добавлен в группу");
     }
 
+    public function decline(Request $request)
+    {
+        if (!$request->user()->isAdmin($request->input('group_id'))) {
+            throw new AccessDeniedHttpException('You haven\'t access to this action');
+        }
+
+        $user = User::find($request->input('user_id'));
+        $group = $this->group->find($request->input('group_id'));
+        $request = $group->requests()->where('user_id', $request->input('user_id'))->first();
+        $request->delete();
+
+        return back()->with('success', "Заявка пользователь {$user->full_name} отклонена");
+    }
+
 }
