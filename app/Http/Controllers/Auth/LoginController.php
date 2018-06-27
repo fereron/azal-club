@@ -30,8 +30,12 @@ class LoginController extends Controller
      */
     public function __construct()
     {
+        dd(phpinfo());
+//        \MessageFormatter::create();
         $this->middleware('guest')->except('logout');
     }
+
+    protected $redirectTo = '/profile';
 
     /**
      * Handle a login request to the application.
@@ -76,18 +80,6 @@ class LoginController extends Controller
             $this->username() => 'required|string|email',
             'password' => 'required|string',
         ]);
-    }
-
-    /**
-     * The user has been authenticated.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  mixed  $user
-     * @return mixed
-     */
-    protected function authenticated(Request $request, $user)
-    {
-        return redirect()->route('profile');
     }
 
     /**

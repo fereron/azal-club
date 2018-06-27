@@ -73,41 +73,41 @@
   content: "";
 }
 
-.app-forum .slidePanel .actions-top {
+.app-forum .actions-top {
   position: absolute;
   top: 30px;
   right: 20px;
 }
 
-.app-forum .slidePanel .actions-bottom {
+.app-forum .actions-bottom {
   position: absolute;
   right: 20px;
   bottom: 30px;
 }
 
-.app-forum .slidePanel .avatar, .app-forum .slidePanel .name {
+.app-forum .avatar, .app-forum .name {
   margin-right: 6px;
 }
 
-.app-forum .slidePanel .time {
+.app-forum .time {
   color: #9e9e9e;
 }
 
-.app-forum .slidePanel .forum-header, .app-forum .slidePanel .forum-content, .app-forum .slidePanel .forum-metas {
+.app-forum .forum-header, .app-forum .forum-content, .app-forum .forum-metas {
   margin-bottom: 20px;
 }
 
-.app-forum .slidePanel .forum-header::after, .app-forum .slidePanel .forum-content::after, .app-forum .slidePanel .forum-metas::after {
+.app-forum .forum-header::after, .app-forum .forum-content::after, .app-forum .forum-metas::after {
   display: block;
   clear: both;
   content: "";
 }
 
-.app-forum .slidePanel .forum-content:last-child {
+.app-forum .forum-content:last-child {
   margin-bottom: 0;
 }
 
-.app-forum .slidePanel .tags {
+.app-forum .tags {
   margin-bottom: 15px;
 }
 

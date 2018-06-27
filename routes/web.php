@@ -45,4 +45,8 @@ $router->group(['middleware' => 'auth'], function (Router $router) {
 
     // ****** FORUM ******//
     $router->get('threads', 'Forum\ThreadsController@index')->name('threads');
+    $router->get('thread/{thread}', 'Forum\ThreadsController@show')->name('thread');
+    $router->post('thread/store', 'Forum\ThreadsController@store')->name('thread.store');
+
+    $router->post('thread/{thread}/replies', 'Forum\RepliesController@store')->name('reply.store');
 });

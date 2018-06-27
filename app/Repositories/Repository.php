@@ -40,7 +40,6 @@ abstract class Repository
      * @return mixed
      */
     public function all($columns = array('*')) {
-        $this->newQuery()->eagerLoadRelations();
         return $this->model->get($columns);
     }
 
