@@ -7,7 +7,7 @@
             <img src="{{ $reply->owner->avatar_path }}">
         </a>
         <span class="name">{{ $reply->owner->full_name }}</span>
-        <span class="time">{{ $reply->owner->created_at->diffForHumans() }}</span>
+        <span class="time">{{ $reply->created_at->diffForHumans() }}</span>
     </div>
     <div class="forum-content">
         <p>{{ $reply->body }}</p>

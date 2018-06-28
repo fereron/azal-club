@@ -28,7 +28,7 @@
                         <img src="{{ $thread->author->avatar_path }}">
                     </a>
                     <span class="name">{{ $thread->author->full_name }}</span>
-                    <span class="time">{{ $thread->author->created_at->diffForHumans() }}</span>
+                    <span class="time">{{ $thread->created_at->diffForHumans() }}</span>
                 </div>
                 <div class="forum-content">
                     {!! $thread->body !!}
