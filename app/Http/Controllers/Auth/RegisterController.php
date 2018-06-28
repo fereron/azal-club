@@ -109,6 +109,7 @@ class RegisterController extends Controller
             return redirect()->route('login');
         }
 
+        return new ConfirmEmail($user);
         \Mail::to($user)->send(new ConfirmEmail($user));
 
         return redirect()->route('login')->with('registered', true);

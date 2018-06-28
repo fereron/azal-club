@@ -32,6 +32,7 @@ class ProfileController extends Controller
 
     public function settings()
     {
+//        dd(Auth::user());
         return view('dashboard.settings', [
             'user' => Auth::user()
         ]);
@@ -48,7 +49,6 @@ class ProfileController extends Controller
         $this->validate($request, [
             'first_name' => 'required|string|max:100',
             'last_name' => 'required|string|max:100',
-            'position' => 'required|string|max:100',
         ]);
 
         $this->user->updateProfile($request);

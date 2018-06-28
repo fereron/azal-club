@@ -9,7 +9,6 @@
 
 
 @section('content')
-    <?php/**@var \App\Group $group */ ?>
     <div class="page group-page" id="page" data-id="{{ $group->id }}">
         <div class="page-header">
             <h1 class="page-title text-center col-lg-8">{{ $group->name }}</h1>
