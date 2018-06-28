@@ -30,8 +30,6 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        dd(phpinfo());
-//        \MessageFormatter::create();
         $this->middleware('guest')->except('logout');
     }
 
