@@ -26,7 +26,7 @@
                             <span class="site-menu-title">Профиль</span>
                         </a>
                     </li>
-                    <li class="site-menu-item has-sub">
+                    <li class="site-menu-item has-sub @if(url()->current() == route('groups')) active @endif">
                         <a href="javascript:void(0)">
                             <i class="site-menu-icon md-google-pages" aria-hidden="true"></i>
                             <span class="site-menu-title">Группы</span>
@@ -69,6 +69,12 @@
                                 @endif
                             @endforeach
                         </ul>
+                    </li>
+                    <li class="site-menu-item @if(url()->current() == route('threads')) active @endif">
+                        <a class="animsition-link" href="{{ route('threads') }}">
+                            <i class="site-menu-icon md-comment-alt-text" aria-hidden="true"></i>
+                            <span class="site-menu-title">Форум</span>
+                        </a>
                     </li>
                 </ul>
             </div>

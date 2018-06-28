@@ -1,4 +1,3 @@
-
 @extends('dashboard.layouts.app')
 
 @push('styles')
@@ -14,26 +13,26 @@
 
 @section('content')
     <div class="page bg-white">
-            <!-- Forum Content Header -->
-            <div class="page-header">
-                <h1 class="page-title">Все обсуждения</h1>
-                <form class="mt-20" action="#" role="search">
-                    <div class="input-search input-search-dark">
-                        <input type="text" class="form-control w-full" placeholder="Искать..." name="">
-                        <button type="submit" class="input-search-btn">
-                            <i class="icon md-search" aria-hidden="true"></i>
-                        </button>
-                    </div>
-                </form>
-            </div>
+        <!-- Forum Content Header -->
+        <div class="page-header">
+            <h1 class="page-title">Все обсуждения</h1>
+            {{--<form class="mt-20" action="#" role="search">--}}
+            {{--<div class="input-search input-search-dark">--}}
+            {{--<input type="text" class="form-control w-full" placeholder="Искать..." name="">--}}
+            {{--<button type="submit" class="input-search-btn">--}}
+            {{--<i class="icon md-search" aria-hidden="true"></i>--}}
+            {{--</button>--}}
+            {{--</div>--}}
+            {{--</form>--}}
+        </div>
 
-            <!-- Forum Content -->
-            <div class="page-content tab-content page-content-table nav-tabs-animate">
-                <div class="tab-pane animation-fade active" id="forum-newest" role="tabpanel">
-                    <table class="table is-indent">
-                        <tbody>
-                        @foreach($threads as $thread)
-                            <tr>
+        <!-- Forum Content -->
+        <div class="page-content tab-content page-content-table nav-tabs-animate mb-50">
+            <div class="tab-pane animation-fade active" id="forum-newest" role="tabpanel">
+                <table class="table is-indent">
+                    <tbody>
+                    @foreach($threads as $thread)
+                        <tr>
                             <td class="pre-cell"></td>
                             <td class="cell-60 responsive-hide">
                                 <a class="avatar" href="javascript:void(0)">
@@ -47,7 +46,7 @@
                                         <div class="metas">
                                             <span class="author">{{ $thread->author->full_name }}</span>
                                             <span class="started">{{ $thread->created_at->diffForHumans() }}</span>
-                                            <span class="badges">Themes</span>
+                                            {{--<span class="badges">Themes</span>--}}
                                         </div>
                                     </div>
                                 </a>
@@ -60,21 +59,21 @@
                             </td>
                             <td class="suf-cell"></td>
                         </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
-                    <ul class="pagination pagination-gap">
-                        <li class="disabled page-item"><a class="page-link" href="javascript:void(0)">Previous</a></li>
-                        <li class="active page-item"><a class="page-link" href="javascript:void(0)">1 <span class="sr-only">(current)</span></a></li>
-                        <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>
-                        <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
-                        <li class="page-item"><a class="page-link" href="javascript:void(0)">4</a></li>
-                        <li class="page-item"><a class="page-link" href="javascript:void(0)">5</a></li>
-                        <li class="page-item"><a class="page-link" href="javascript:void(0)">Next</a></li>
-                    </ul>
-                </div>
+                    @endforeach
+                    </tbody>
+                </table>
+                {{--<ul class="pagination pagination-gap">--}}
+                {{--<li class="disabled page-item"><a class="page-link" href="javascript:void(0)">Previous</a></li>--}}
+                {{--<li class="active page-item"><a class="page-link" href="javascript:void(0)">1 <span class="sr-only">(current)</span></a></li>--}}
+                {{--<li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>--}}
+                {{--<li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>--}}
+                {{--<li class="page-item"><a class="page-link" href="javascript:void(0)">4</a></li>--}}
+                {{--<li class="page-item"><a class="page-link" href="javascript:void(0)">5</a></li>--}}
+                {{--<li class="page-item"><a class="page-link" href="javascript:void(0)">Next</a></li>--}}
+                {{--</ul>--}}
             </div>
         </div>
+    </div>
     </div>
 
     <!-- Site Action -->
@@ -92,48 +91,54 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" aria-hidden="true" data-dismiss="modal">×</button>
-                    <h4 class="modal-title">Create New Topic</h4>
+                    <h4 class="modal-title">Создать новое обсуждение</h4>
                 </div>
+
                 <div class="modal-body container-fluid">
-                    <form>
+                    <form action="{{ route('thread.store') }}" method="post" id="thread-form">
+                        @csrf
                         <div class="form-group">
-                            <label class="form-control-label mb-15" for="topicTitle">Topic Title:</label>
-                            <input type="text" class="form-control" id="topicTitle" name="title" placeholder="How To..."
+                            <label class="form-control-label mb-15" for="topicTitle">Заголовок:</label>
+                            <input type="text" class="form-control" id="topicTitle" name="title" placeholder="Как..."
                             />
                         </div>
                         <div class="form-group">
-                            <textarea name="content" data-provide="markdown" data-iconlibrary="fa" rows="10"></textarea>
+                            <textarea name="body" data-provide="markdown" data-iconlibrary="fa" rows="10"></textarea>
                         </div>
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <label class="form-control-label mb-15" for="topicCategory">Topic Category:</label>
-                                    <select id="topicCategory" data-plugin="selectpicker">
-                                        <option>PHP</option>
-                                        <option>Javascript</option>
-                                        <option>HTML</option>
-                                        <option>CSS</option>
-                                        <option>Ruby</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-6">
-                                    <label class="form-control-label mb-15" for="topic_tags">Topic Tags:</label>
-                                    <select id="topic_tags" data-plugin="selectpicker">
-                                        <option>PHP</option>
-                                        <option>Javascript</option>
-                                        <option>HTML</option>
-                                        <option>CSS</option>
-                                        <option>Ruby</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
+                        {{--<div class="form-group">--}}
+                        {{--<div class="row">--}}
+                        {{--<div class="col-sm-6">--}}
+                        {{--<label class="form-control-label mb-15" for="topicCategory">Topic Category:</label>--}}
+                        {{--<select id="topicCategory" data-plugin="selectpicker">--}}
+                        {{--<option>PHP</option>--}}
+                        {{--<option>Javascript</option>--}}
+                        {{--<option>HTML</option>--}}
+                        {{--<option>CSS</option>--}}
+                        {{--<option>Ruby</option>--}}
+                        {{--</select>--}}
+                        {{--</div>--}}
+                        {{--<div class="col-sm-6">--}}
+                        {{--<label class="form-control-label mb-15" for="topic_tags">Topic Tags:</label>--}}
+                        {{--<select id="topic_tags" data-plugin="selectpicker">--}}
+                        {{--<option>PHP</option>--}}
+                        {{--<option>Javascript</option>--}}
+                        {{--<option>HTML</option>--}}
+                        {{--<option>CSS</option>--}}
+                        {{--<option>Ruby</option>--}}
+                        {{--</select>--}}
+                        {{--</div>--}}
+                        {{--</div>--}}
+                        {{--</div>--}}
                     </form>
                 </div>
                 <div class="modal-footer text-left">
-                    <button class="btn btn-primary" data-dismiss="modal" type="submit">Create</button>
-                    <a class="btn btn-sm btn-white btn-flat" data-dismiss="modal" href="javascript:void(0)">Cancel</a>
+                    <button class="btn btn-primary"
+                            onclick="event.preventDefault();document.getElementById('thread-form').submit();">
+                        Создать
+                    </button>
+                    <a class="btn btn-sm btn-white btn-flat" data-dismiss="modal" href="javascript:void(0)">Отменить</a>
                 </div>
+
             </div>
         </div>
     </div>
