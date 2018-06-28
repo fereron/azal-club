@@ -46,6 +46,8 @@ class GroupController extends Controller
             return $member->id == auth()->id();
         });
 
+//        dd($members->isNotEmpty());
+
         if (!$user) {
             $request = $group->requests()->where('user_id', auth()->id())->first();
         }
