@@ -59,7 +59,7 @@ class UserRepository extends Repository
 
         $fileName = time() . md5($user->email) . '.' . $format;
         $doc = base64_decode($doc[1]);
-        $bytes_written = Storage::disk('public')->put("avatars/$fileName", $doc);
+        $bytes_written = Storage::disk('public')->put("users/avatars/$fileName", $doc);
 
         if ($bytes_written === false) {
             return null;

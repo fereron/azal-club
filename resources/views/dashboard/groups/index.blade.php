@@ -50,7 +50,6 @@
                 <ul class="blocks blocks-100 blocks-xxl-5 blocks-lg-4 blocks-md-3 blocks-sm-2"
                     data-plugin="animateList" data-child=">li">
 
-                    <?php /**@var \App\Group $group */ ?>
                     @foreach ($groups as $group)
                         <li>
                             <div class="panel">
